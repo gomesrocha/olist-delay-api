@@ -1,7 +1,7 @@
 package dev.fabiorocha.ml;
 
-import dev.fabiorocha.api.DelayPredictionRequest;
-import dev.fabiorocha.api.DelayPredictionResponse;
+import dev.fabiorocha.dto.DelayPredictionRequest;
+import dev.fabiorocha.dto.DelayPredictionResponse;
 import jakarta.annotation.PostConstruct;
 import jakarta.enterprise.context.ApplicationScoped;
 import org.eclipse.microprofile.config.inject.ConfigProperty;
@@ -74,7 +74,7 @@ public class DelayPredictionService {
 
             boolean possibleDelay = probability >= threshold;
 
-            String risk = classifyRisk(probability);
+            RiskLevel risk = classifyRisk(probability);
 
             String message = possibleDelay
                     ? "Pedido com risco de atraso acima do limite configurado."
@@ -123,20 +123,8 @@ public class DelayPredictionService {
         }
     }
 
-    private String classifyRisk(double probability) {
-        if (probability >= 0.75) {
-            return "ALTO";
-        }
-
-        if (probability >= 0.50) {
-            return "MEDIO";
-        }
-
-        if (probability >= 0.30) {
-            return "BAIXO";
-        }
-
-        return "MUITO_BAIXO";
+    private RiskLevel classifyRisk(double probability) {
+        return RiskLevel.from(probability);
     }
 
     private double round(double value) {

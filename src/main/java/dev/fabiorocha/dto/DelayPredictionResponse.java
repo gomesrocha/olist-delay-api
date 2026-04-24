@@ -1,9 +1,11 @@
-package dev.fabiorocha.api;
+package dev.fabiorocha.dto;
+
+import dev.fabiorocha.ml.RiskLevel;
 
 public record DelayPredictionResponse(
         boolean possivelAtraso,
         double probabilidadeAtraso,
-        String risco,
+        RiskLevel risco,
         String mensagem
 ) {
 }
