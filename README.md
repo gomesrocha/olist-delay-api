@@ -177,7 +177,7 @@ src/main/resources/model/olist-delay-header.model
 
 ---
 
-## 6. Resultado atual do treinamento
+## 6. Resultado do teste de treinamento
 
 Com a configuração atual, o treinamento utilizou:
 
