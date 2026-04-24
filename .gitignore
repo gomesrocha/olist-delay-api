@@ -1,0 +1,29 @@
+# Maven / Quarkus
+target/
+.mvn/wrapper/maven-wrapper.jar
+
+# IDEs
+.idea/
+.vscode/
+*.iml
+
+# Logs
+*.log
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
+
+# Dataset Olist - não versionar os CSVs públicos
+data/olist/*.csv
+data/olist/*.zip
+
+# Downloads auxiliares
+*.zip
+
+# Arquivos temporários
+*.tmp
+*.swp
+
+# Modelos Weka gerados localmente
+src/main/resources/model/*.model
